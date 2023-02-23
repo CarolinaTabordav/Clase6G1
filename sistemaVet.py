@@ -3,7 +3,7 @@ class Mascota:
     def __init__(self):
         self.__nombre= " "
         self.__historia=0
-        self.__tipo=" "
+        self.__tipo1= ""
         self.__peso=0
         self.__fecha_ingreso=" "
         self.__medicamento=""
@@ -20,7 +20,9 @@ class Mascota:
         return self.__fecha_ingreso
     def ver_Medicamento(self):
         return self.__medicamento 
-            
+    def verlista_medicamentos(self):
+        return self.__lista_medicamentos
+
     def asignarNombre(self,n):
         self.__nombre=n
     def asignarHistoria(self,nh):
@@ -36,8 +38,10 @@ class Mascota:
 
 class sistemaV:
     def __init__(self):
-        self.__lista_mascotas = []    
-        # self.__lista_mascotas = {}    
+    
+        self.__felinos={}
+        self.__caninos={}
+        self.__lista_mascotas = []   
 
     def verificarExiste(self,historia):
         for m in self.__lista_mascotas:
@@ -47,14 +51,20 @@ class sistemaV:
         return False
 
     def verNumeroMascotas(self):
-        return len(self.__lista_mascotas)  
+        return len(self.__lista_mascotas)
+    
+    def verNumerofelinos(self):
+        return len(self.__felinos)
+
+    def verNumerocaninos(self):
+        return len(self.__caninos)
 
     def ingresarMascota(self,mascota):
         if self.verificarExiste(mascota.verHistoria()):
             return False
         else:
             self.__lista_mascotas.append(mascota) 
-            # self.__lista_mascotas[mascota.verHistoria()] = mascota
+            self.__lista_mascotas[mascota.verHistoria()] = mascota
 
             return True
 
@@ -80,15 +90,25 @@ class sistemaV:
                 return True  #eliminado con exito
         return False
 
-
-
-
-
-
-
-
-
-        
-
-         
+class Medicamento:
+    def __init__(self):
+        self.__nombre=""
+        self.__dosis=0
+        self.__tipo=""
     
+    def verNombre(self):
+        return self.__nombre
+
+    def verDosis(self):
+        return self.__dosis
+    
+    def verTipo(self):
+        return self.__tipo
+    
+    def asignarTipo(self,med):
+        self.__tipo==med
+
+    def asignarNombre(self,med):
+        self.__nombre==med
+    def asignarDosis(self,med):
+        self.__dosis=med 
