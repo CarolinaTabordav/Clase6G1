@@ -12,7 +12,8 @@ def main():
                     \n5- Eliminar mascota 
                     \n6- Salir 
                     \nUsted ingresó la opción: ''' ))
-    if menu == 1:
+                    
+            if menu == 1:
             if servicio_hospitalario.verNumeroMascotas() >= 10:
                 print("No hay espacio, vuelva después..")
                 continue
